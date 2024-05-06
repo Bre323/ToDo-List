@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --menu-background: rgb(91, 21, 21);
+    --background: rgb(233, 125, 125);
+    --font-color: rgb(235, 235, 235);
+}
+
+body {
+    width: 100%;
+    background-color: var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+aside {
+    background-color: var(--menu-background);
+    color: var(--font-color);
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    padding: 15px;
+}
+
+aside > h1 {
+    font-size: 2rem;
+}
