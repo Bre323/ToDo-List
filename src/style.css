@@ -5,8 +5,10 @@
 }
 
 :root {
-    --menu-background: rgb(91, 21, 21);
-    --background: rgb(233, 125, 125);
+    --menu-background: rgb(255, 134, 134);
+    --div-hover-color: rgb(255, 119, 119);
+    --div-active-color: rgb(255, 109, 109);
+    --background: rgb(168, 65, 65);
     --font-color: rgb(235, 235, 235);
 }
 
@@ -18,7 +20,6 @@ body {
 
 aside {
     background-color: var(--menu-background);
-    color: var(--font-color);
     width: 20%;
     height: 100vh;
     position: fixed;
@@ -28,3 +29,44 @@ aside {
 aside > h1 {
     font-size: 2rem;
 }
+
+img {
+    height: 20px;
+    width: 20px;
+}
+
+.tasks {
+    margin: 25px 0;
+    border-top: 2px solid black;
+}
+
+.projects {
+    border-top: 2px solid black;
+}
+
+.projects > h2 {
+    margin-top: 15px;
+}
+
+.tasks div,
+.projects div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+    padding: 5px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tasks div:hover,
+.projects div:hover {
+    background-color: var(--div-hover-color);
+    padding-left: 10px;
+}
+
+.tasks div:active,
+.projects div:active {
+    transform: scale(0.95);
+    background-color: var(--div-active-color);
+} 
