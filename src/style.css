@@ -8,7 +8,8 @@
     --menu-background: rgb(255, 134, 134);
     --div-hover-color: rgb(255, 119, 119);
     --div-active-color: rgb(255, 109, 109);
-    --background: rgb(168, 65, 65);
+    --background: rgb(182, 75, 75);
+    --info-item: rgb(167, 60, 60);
     --font-color: rgb(235, 235, 235);
 }
 
@@ -18,11 +19,15 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.wrapper {
+    display: flex;
+}
+
 aside {
     background-color: var(--menu-background);
     width: 20%;
+    min-width: 200px;
     height: 100vh;
-    position: fixed;
     padding: 15px;
 }
 
@@ -70,3 +75,48 @@ img {
     transform: scale(0.95);
     background-color: var(--div-active-color);
 } 
+
+main {
+    width: 100%;
+    min-width: 450px;
+    padding: 15px;
+    margin: 20px 10%;
+}
+
+main .title {
+    border-bottom: 1px solid black;
+}
+
+.task-item {
+    margin-top: 25px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.task-item:hover {
+    background-color: var(--info-item);
+    cursor: pointer;
+}
+
+.task-item p:first-child {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.task-info,
+.task-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.task-info {
+    margin-top: 10px;
+}
+
+.task-info div,
+.task-info p {
+    background-color: var(--info-item);
+    padding: 3px 7px;
+    border-radius: 15px;
+}
