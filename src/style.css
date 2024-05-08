@@ -10,6 +10,7 @@
     --div-active-color: rgb(255, 109, 109);
     --background: rgb(182, 75, 75);
     --info-item: rgb(167, 60, 60);
+    --modal-box-color: rgb(155, 4, 4);
     --font-color: rgb(235, 235, 235);
 }
 
@@ -23,6 +24,8 @@ body {
     display: flex;
 }
 
+
+/* Sidebar Section */
 aside {
     background-color: var(--menu-background);
     width: 20%;
@@ -76,6 +79,8 @@ img {
     background-color: var(--div-active-color);
 } 
 
+
+/* Main Section */
 main {
     width: 100%;
     min-width: 450px;
@@ -87,10 +92,74 @@ main .title {
     border-bottom: 1px solid black;
 }
 
+.modal-box {
+    background-color: var(--modal-box-color);
+    position: relative;
+    height: 200px;
+    width: 90%;
+    padding: 15px;
+    margin: 10px auto;
+}
+
+.modal-box > form {
+    display: flex;
+    justify-content: space-between;
+}
+
+form div {
+    width: 45%;
+}
+
+.left-form input,
+.left-form select {
+    background-color: var(--info-item);
+    color: var(--font-color);
+    padding: 7px 5px;
+}
+
+input,
+textarea {
+    border: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--font-color);
+}
+
+.left-form,
+.right-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right-form textarea {
+    background-color: var(--info-item);
+    height: 112px;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+}
+
+.right-form > .form-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-buttons > button {
+    width: 45%;
+    padding: 7px 5px;
+}
+
 .task-item {
     margin-top: 25px;
     padding: 10px;
     transition: 0.3s;
+    list-style: none;
 }
 
 .task-item:hover {
