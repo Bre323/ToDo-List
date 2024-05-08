@@ -106,8 +106,13 @@ main .title {
     justify-content: space-between;
 }
 
-form div {
+.modal-box > form div {
     width: 45%;
+}
+
+.modal-box input::placeholder,
+.modal-box textarea::placeholder {
+    color: var(--font-color);
 }
 
 .left-form input,
@@ -122,9 +127,8 @@ textarea {
     border: none;
 }
 
-input::placeholder,
-textarea::placeholder {
-    color: var(--font-color);
+button {
+    padding: 7px 5px;
 }
 
 .left-form,
@@ -152,7 +156,6 @@ textarea::placeholder {
 
 .form-buttons > button {
     width: 45%;
-    padding: 7px 5px;
 }
 
 .task-item {
@@ -172,19 +175,70 @@ textarea::placeholder {
     font-size: 1.1rem;
 }
 
-.task-info,
-.task-div {
+.editing-box {
+    background-color: var(--info-item);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.editing-box .top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.editing-box .bottom-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.editing-box input,
+.editing-box select,
+.editing-box textarea {
+    background-color: var(--background);
+}
+
+.editing-box input::placeholder,
+.editing-box textarea::placeholder {
+    color: black;
+}
+
+.editing-box input,
+.editing-box select {
+    padding: 5px;
+}
+
+.editing-box textarea {
+    resize: none;
+    padding: 7.5px;
+    height: 80px;
+}
+
+.editing-box .bottom-section input,
+.editing-box .bottom-section select {
+    width: 125px;
+}
+
+.editing-box button {
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+.task-content .task-info,
+.task-content .task-div {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.task-info {
+.task-content .task-info {
     margin-top: 10px;
 }
 
-.task-info div,
-.task-info p {
+.task-content .task-info div,
+.task-content .task-info p {
     background-color: var(--info-item);
     padding: 3px 7px;
     border-radius: 15px;

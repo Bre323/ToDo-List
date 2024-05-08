@@ -100,40 +100,73 @@
                 </dialog>
 
                 <li class="task-item">
-                    <p>Clean House</p>
-                    <p>The house needs to be cleaned. I'll do it after work.</p>
-    
-                    <div class="task-info">
-                        <div class="task-div">
-                            <img src="./assets/day-icon.svg">
-                            <p>10 may 2024</p>
-                        </div>
-    
-                        <div class="task-div">
-                            <img src="./assets/folder-icon.svg">
-                            <p>House</p>
+                    <div class="editing-box">
+                        <div class="top-section">
+                            <input type="text" placeholder="Task name (required)" required>
+                            <textarea name="notes" id="notes" placeholder="Notes (Optional)"></textarea>
                         </div>
 
-                        <p>High priority</p>
+                        <div class="bottom-section">
+                            <input type="date">
+
+                            <select name="priority" id="priority-input" required>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+
+                            <select name="project" id="project-input">
+                                <option value="no-project">No project</option>
+                                <option value="house">House</option>
+                                <option value="work">Work</option>
+                                <option value="gym">Gym</option>
+                            </select>
+
+                            <div class="box-buttons">
+                                <button>Cancel</button>
+                                <button>Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="task-content">
+                        <p>Clean House</p>
+                        <p>The house needs to be cleaned. I'll do it after work.</p>
+        
+                        <div class="task-info">
+                            <div class="task-div">
+                                <img src="./assets/day-icon.svg">
+                                <p>10 may 2024</p>
+                            </div>
+        
+                            <div class="task-div">
+                                <img src="./assets/folder-icon.svg">
+                                <p>House</p>
+                            </div>
+
+                            <p>High priority</p>
+                        </div>
                     </div>
                 </li>
-
+                    
                 <li class="task-item">
-                    <p>Read books</p>
-                    <p>Need to read some books.</p>
-    
-                    <div class="task-info">
-                        <div class="task-div">
-                            <img src="./assets/day-icon.svg">
-                            <p>1 jun 2024</p>
-                        </div>
-    
-                        <div class="task-div">
-                            <img src="./assets/folder-icon.svg">
-                            <p>House</p>
-                        </div>
+                    <div class="task-content">
+                        <p>Read books</p>
+                        <p>Need to read some books.</p>
+        
+                        <div class="task-info">
+                            <div class="task-div">
+                                <img src="./assets/day-icon.svg">
+                                <p>1 jun 2024</p>
+                            </div>
+        
+                            <div class="task-div">
+                                <img src="./assets/folder-icon.svg">
+                                <p>House</p>
+                            </div>
 
-                        <p>Medium priority</p>
+                            <p>Medium priority</p>
+                        </div>
                     </div>
                 </li>
             </ul>
