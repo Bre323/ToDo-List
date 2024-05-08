@@ -32,6 +32,7 @@ aside {
     min-width: 200px;
     height: 100vh;
     padding: 15px;
+    position: fixed;
 }
 
 aside > h1 {
@@ -83,9 +84,9 @@ img {
 /* Main Section */
 main {
     width: 100%;
-    min-width: 450px;
+    min-width: 550px;
     padding: 15px;
-    margin: 20px 10%;
+    margin: 20px 10% 20px max(28%, 250px);
 }
 
 main .title {
