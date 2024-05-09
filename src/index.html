@@ -68,19 +68,19 @@
             </div>
     
             <ul class="task-list">
-                <dialog open class="modal-box">
+                <dialog class="modal-box">
                     <form>
                         <div class="left-form">
-                            <input type="text" placeholder="Task name (required)" required>
-                            <input type="date" required>
+                            <input type="text" id="task-name" placeholder="Task name (required)" required>
+                            <input type="date" id="date" required>
 
-                            <select name="priority" id="priority-input" required>
+                            <select name="priority" id="priority" required>
                                 <option value="low">Low</option>
                                 <option value="medium">Medium</option>
                                 <option value="high">High</option>
                             </select>
 
-                            <select name="project" id="project-input">
+                            <select name="project" id="project">
                                 <option value="no-project">No project</option>
                                 <option value="house">House</option>
                                 <option value="work">Work</option>
@@ -100,6 +100,7 @@
                 </dialog>
 
                 <li class="task-item">
+                <!--
                     <div class="editing-box">
                         <div class="top-section">
                             <input type="text" placeholder="Task name (required)" required>
@@ -128,6 +129,7 @@
                             </div>
                         </div>
                     </div>
+                -->
 
                     <div class="task-content">
                         <p>Clean House</p>
@@ -172,5 +174,7 @@
             </ul>
         </main>
     </div>
+
+    <script src="../dist/main.js"></script>
 </body>
 </html>
