@@ -1,6 +1,5 @@
 let modalBox = document.querySelector('dialog');
 let taskItem = document.querySelector('.task-item');
-let taskContent = document.querySelector('.task-content');
 
 
 const openModal = () => {
@@ -74,4 +73,4 @@ const createEditingBox = () => {
 
 
 
-export { openModal, closeModal, createEditingBox, removeEditingBox };
+export { openModal, closeModal, createEditingBox };
