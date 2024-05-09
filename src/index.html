@@ -71,8 +71,8 @@
                 <dialog class="modal-box">
                     <form>
                         <div class="left-form">
-                            <input type="text" id="task-name" placeholder="Task name (required)" required>
-                            <input type="date" id="date" required>
+                            <input type="text" name="task-name" id="task-name" placeholder="Task name (required)" required>
+                            <input type="date" name="date" id="date" required>
 
                             <select name="priority" id="priority" required>
                                 <option value="low">Low</option>
@@ -92,7 +92,7 @@
                             <textarea name="notes" id="notes" placeholder="Notes (Optional)"></textarea>
                             
                             <div class="form-buttons">
-                                <button id="cancel-button">Cancel</button>
+                                <button id="cancel-button" formnovalidate>Cancel</button>
                                 <button id="save-button">Save</button>
                             </div>
                         </div>
