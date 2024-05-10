@@ -1,4 +1,4 @@
-import { closeModal, openModal } from "./scripts/boxManager";
+import { closeModal, openModal } from "./scripts/dom";
 import { addTask } from "./scripts/taskManager";
 
 let addTaskButton = document.querySelector('#add-task');

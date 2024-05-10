@@ -2,6 +2,7 @@ let modalBox = document.querySelector('dialog');
 let taskItem = document.querySelector('.task-item');
 
 
+
 const openModal = () => {
     modalBox.open = true;
 }
@@ -10,7 +11,7 @@ const closeModal = () => {
     modalBox.open = false;
 }
 
-const createEditingBox = () => {
+const renderEditingBox = () => {
 
     let editingBox = document.createElement('div');
     editingBox.classList.add('editing-box');
@@ -73,4 +74,4 @@ const createEditingBox = () => {
 
 
 
-export { openModal, closeModal, createEditingBox };
+export { openModal, closeModal, renderEditingBox };
