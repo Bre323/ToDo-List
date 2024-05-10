@@ -1,5 +1,5 @@
 let modalBox = document.querySelector('dialog');
-let taskItem = document.querySelector('.task-item');
+let taskList = document.querySelector('.task-list');
 
 
 
@@ -11,8 +11,10 @@ const closeModal = () => {
     modalBox.open = false;
 }
 
+
 const renderEditingBox = () => {
 
+    let taskItem = document.querySelector('.task-item');
     let editingBox = document.createElement('div');
     editingBox.classList.add('editing-box');
 
@@ -73,5 +75,49 @@ const renderEditingBox = () => {
 }
 
 
+const renderListItem = (name, date, priority, project, notes) => {
+    let taskItem = document.createElement('li');
+    taskItem.classList.add('task-item');
 
-export { openModal, closeModal, renderEditingBox };
+    let content = document.createElement('div');
+    content.classList.add('task-content');
+
+    let nameText = document.createElement('p');
+    nameText.innerText = `${name}`;
+    let notesText = document.createElement('p');
+    notesText.innerText = `${notes}`
+
+    let taskInfo = document.createElement('div');
+    taskInfo.classList.add('task-info');
+
+    let dateDiv = document.createElement('div');
+    dateDiv.classList.add('task-div');
+    let projectDiv = document.createElement('div');
+    projectDiv.classList.add('task-div');
+
+    let dateImage = document.createElement('img');
+    dateImage.src = './assets/day-icon.svg';
+    let dateText = document.createElement('p');
+    dateText.innerText = `${date}`;
+
+    let projectImage = document.createElement('img');
+    projectImage.src = './assets/folder-icon.svg';
+    let projectText = document.createElement('p');
+    projectText.innerText = `${project}`;
+
+    let priorityText = document.createElement('p');
+    priorityText.innerText = `${priority}`;
+
+
+    dateDiv.append(dateImage, dateText);
+    projectDiv.append(projectImage, projectText);
+    taskInfo.append(dateDiv, projectDiv);
+    content.append(nameText, notesText, taskInfo, priorityText);
+    taskItem.appendChild(content);
+
+    console.log(taskItem);
+}
+
+
+
+export { openModal, closeModal, renderEditingBox, renderListItem };
