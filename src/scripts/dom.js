@@ -106,18 +106,24 @@ const renderListItem = (name, date, priority, project, notes) => {
     projectText.innerText = `${project}`;
 
     let priorityText = document.createElement('p');
-    priorityText.innerText = `${priority}`;
+    priorityText.innerText = `${priority} priority`;
 
-
+    //APPENDING TO TASK LIST
     dateDiv.append(dateImage, dateText);
     projectDiv.append(projectImage, projectText);
-    taskInfo.append(dateDiv, projectDiv);
-    content.append(nameText, notesText, taskInfo, priorityText);
+    taskInfo.append(dateDiv, projectDiv, priorityText);
+    content.append(nameText, notesText, taskInfo);
     taskItem.appendChild(content);
-
-    console.log(taskItem);
+    taskList.appendChild(taskItem);
 }
 
+/*
+const renderTasks = () => {
+    for(let i = 1; i < localStorage.length; i++) {
+        JSON.parse(localStorage[i]);
+    }
+}
+*/
 
 
 export { openModal, closeModal, renderEditingBox, renderListItem };
