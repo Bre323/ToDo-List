@@ -117,13 +117,20 @@ const renderListItem = (name, date, priority, project, notes) => {
     taskList.appendChild(taskItem);
 }
 
-/*
+
 const renderTasks = () => {
-    for(let i = 1; i < localStorage.length; i++) {
-        JSON.parse(localStorage[i]);
+    for(let i = 0; i < localStorage.length; i++) {
+        let taskData = JSON.parse(localStorage[`task-${i}`]);
+        renderListItem(
+            taskData.name, 
+            taskData.date, 
+            taskData.priority, 
+            taskData.project, 
+            taskData.notes
+        );
     }
 }
-*/
 
 
-export { openModal, closeModal, renderEditingBox, renderListItem };
+
+export { openModal, closeModal, renderEditingBox, renderTasks };
