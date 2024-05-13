@@ -53,6 +53,12 @@ const updateTask = () => {
 }
 */
 
+/*
+const removeTask = key => {
+    localStorage.removeItem(`task-${key}`);
+}
+*/
+
 
 
 export { addTask };
