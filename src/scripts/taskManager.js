@@ -35,13 +35,12 @@ const addTask = () => {
     }
 }
 
-/*
 const updateTask = () => {
-    let name = document.querySelector('#task-name').value;
-    let date = document.querySelector('#date').value;
-    let priority = document.querySelector('#priority').value;
-    let project = document.querySelector('#project').value;
-    let notes = document.querySelector('#notes').value;
+    let name = document.querySelector('#task-name-input').value;
+    let date = document.querySelector('#date-input').value;
+    let priority = document.querySelector('#priority-input').value;
+    let project = document.querySelector('#project-input').value;
+    let notes = document.querySelector('#notes-input').value;
 
     if(form.checkValidity() === true) {
         let task = new Task(name, date, priority, project, notes);
@@ -51,7 +50,7 @@ const updateTask = () => {
         console.log(getId());
     }
 }
-*/
+/**/
 
 /*
 const removeTask = key => {
@@ -61,4 +60,4 @@ const removeTask = key => {
 
 
 
-export { addTask };
+export { addTask, updateTask };

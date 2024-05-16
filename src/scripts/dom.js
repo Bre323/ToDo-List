@@ -24,12 +24,13 @@ const renderEditingBox = () => {
 
     let taskNameInput = document.createElement('input');
     taskNameInput.type = 'text';
+    taskNameInput.id = 'task-name-input'
     taskNameInput.placeholder = 'Task name (required)';
     taskNameInput.required = true;
 
     let notesInput = document.createElement('textarea');
     notesInput.name = 'notes';
-    notesInput.id = 'notes';
+    notesInput.id = 'notes-input';
     notesInput.placeholder = 'Notes (Optional)';
 
     //BOTTOM SECTION
@@ -38,6 +39,7 @@ const renderEditingBox = () => {
 
     let dateInput = document.createElement('input');
     dateInput.type = 'date';
+    dateInput.id = 'date-input';
 
     let priorityInput = document.createElement('select');
     priorityInput.name = 'priority';
@@ -64,6 +66,8 @@ const renderEditingBox = () => {
     let saveButton = document.createElement('button');
     cancelButton.innerText = 'Cancel';
     saveButton.innerText = 'Save';
+    cancelButton.id = 'cancel-edit-button';
+    saveButton.id = 'save-edit-button';
 
     //APPENDING TO EDITING BOX
     boxButtons.append(cancelButton, saveButton);

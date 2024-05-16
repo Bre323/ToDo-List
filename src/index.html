@@ -103,12 +103,12 @@
                 <!--
                     <div class="editing-box">
                         <div class="top-section">
-                            <input type="text" placeholder="Task name (required)" required>
-                            <textarea name="notes" id="notes" placeholder="Notes (Optional)"></textarea>
+                            <input type="text" id="task-name-input" placeholder="Task name (required)" required>
+                            <textarea name="notes" id="notes-input" placeholder="Notes (Optional)"></textarea>
                         </div>
 
                         <div class="bottom-section">
-                            <input type="date">
+                            <input type="date" id="date-input">
 
                             <select name="priority" id="priority-input" required>
                                 <option value="low">Low</option>
@@ -124,8 +124,8 @@
                             </select>
 
                             <div class="box-buttons">
-                                <button>Cancel</button>
-                                <button>Save</button>
+                                <button id="cancel-edit-button">Cancel</button>
+                                <button id="save-edit-button">Save</button>
                             </div>
                         </div>
                     </div>
