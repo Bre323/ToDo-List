@@ -5,10 +5,10 @@
 }
 
 :root {
+    --background: rgb(182, 75, 75);
     --menu-background: rgb(255, 134, 134);
     --div-hover-color: rgb(255, 119, 119);
     --div-active-color: rgb(255, 109, 109);
-    --background: rgb(182, 75, 75);
     --info-item: rgb(167, 60, 60);
     --modal-box-color: rgb(155, 4, 4);
     --font-color: rgb(235, 235, 235);
@@ -24,8 +24,11 @@ body {
     display: flex;
 }
 
+img {
+    height: 20px;
+    width: 20px;
+}
 
-/* Sidebar Section */
 aside {
     background-color: var(--menu-background);
     width: 20%;
@@ -39,26 +42,31 @@ aside > h1 {
     font-size: 2rem;
 }
 
-img {
-    height: 20px;
-    width: 20px;
-}
-
 .tasks {
     margin: 25px 0;
+}
+
+.tasks, 
+.projects {
     border-top: 2px solid black;
 }
 
-.projects {
-    border-top: 2px solid black;
+.tasks > #add-task > h2,
+.projects > h2 {
+    font-size: 1.3rem;
 }
 
 .projects > h2 {
     margin-top: 15px;
 }
 
-.tasks div,
-.projects div {
+.tasks > div > p,
+.projects > div > p {
+    font-size: 0.95rem;
+}
+
+.tasks > div,
+.projects > div {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -68,29 +76,62 @@ img {
     transition: 0.3s;
 }
 
-.tasks div:hover,
-.projects div:hover {
+.tasks > div:hover,
+.projects > div:hover {
     background-color: var(--div-hover-color);
     padding-left: 10px;
 }
 
-.tasks div:active,
-.projects div:active {
-    transform: scale(0.95);
+.tasks > div:active,
+.projects > div:active {
     background-color: var(--div-active-color);
-} 
+    transform: scale(0.95);
+}
 
-
-/* Main Section */
 main {
     width: 100%;
     min-width: 550px;
-    padding: 15px;
     margin: 20px 10% 20px max(28%, 250px);
+    padding: 15px;
 }
 
-main .title {
+main > .title {
     border-bottom: 1px solid black;
+}
+
+.task-item {
+    margin-top: 25px;
+    padding: 10px;
+    list-style: none;
+    transition: 0.3s;
+}
+
+.task-item:hover {
+    background-color: var(--info-item);
+    cursor: pointer;
+}
+
+.task-item > p:first-child {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.task-item > .task-info {
+    margin-top: 10px;
+}
+
+.task-item > .task-info > div,
+.task-item > .task-info > p {
+    background-color: var(--info-item);
+    padding: 4px 8px;
+    border-radius: 15px;
+}
+
+.task-info,
+.task-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .modal-box {
@@ -98,8 +139,8 @@ main .title {
     position: relative;
     height: 200px;
     width: 90%;
-    padding: 15px;
     margin: 10px auto;
+    padding: 15px;
 }
 
 .modal-box > form {
@@ -107,28 +148,20 @@ main .title {
     justify-content: space-between;
 }
 
-.modal-box > form div {
+.modal-box > form > div {
     width: 45%;
 }
 
-.modal-box input::placeholder,
-.modal-box textarea::placeholder {
-    color: var(--font-color);
-}
-
-.left-form input,
-.left-form select {
-    background-color: var(--info-item);
-    color: var(--font-color);
-    padding: 7px 5px;
-}
-
-input,
-textarea {
+.modal-box input,
+.modal-box select,
+.modal-box textarea {
     border: none;
 }
 
-button {
+.left-form > input,
+.left-form > select {
+    background-color: var(--info-item);
+    color: var(--font-color);
     padding: 7px 5px;
 }
 
@@ -139,43 +172,32 @@ button {
     gap: 10px;
 }
 
-.right-form textarea {
+.left-form > input::placeholder,
+.right-form > textarea::placeholder {
+    color: var(--font-color);
+}
+
+.right-form > textarea {
     background-color: var(--info-item);
-    height: 112px;
+    height: 110px;
     width: 100%;
-    resize: none;
     padding: 10px;
+    resize: none;
 }
 
 .right-form > .form-buttons {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 10px;
     width: 100%;
 }
 
-.form-buttons > button {
+.right-form > .form-buttons > button {
     width: 45%;
+    padding: 7px 5px;
 }
 
-.task-item {
-    margin-top: 25px;
-    padding: 10px;
-    transition: 0.3s;
-    list-style: none;
-}
-
-.task-item:hover {
-    background-color: var(--info-item);
-    cursor: pointer;
-}
-
-.task-item p:first-child {
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
+/*
 .editing-box {
     background-color: var(--info-item);
     padding: 15px;
@@ -226,21 +248,4 @@ button {
     width: 100px;
     margin-bottom: 5px;
 }
-
-.task-content .task-info,
-.task-content .task-div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.task-content .task-info {
-    margin-top: 10px;
-}
-
-.task-content .task-info div,
-.task-content .task-info p {
-    background-color: var(--info-item);
-    padding: 3px 7px;
-    border-radius: 15px;
-}
+*/
