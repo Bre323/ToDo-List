@@ -35,6 +35,7 @@ const addTask = () => {
     }
 }
 
+/*
 const updateTask = () => {
     let name = document.querySelector('#task-name-input').value;
     let date = document.querySelector('#date-input').value;
@@ -50,9 +51,7 @@ const updateTask = () => {
         console.log(getId());
     }
 }
-/**/
 
-/*
 const removeTask = key => {
     localStorage.removeItem(`task-${key}`);
 }
@@ -60,4 +59,4 @@ const removeTask = key => {
 
 
 
-export { addTask, updateTask };
+export { addTask };
