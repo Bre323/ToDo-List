@@ -100,40 +100,56 @@
                 </dialog>
 
                 <li class="task-item">
-                    <p>Clean House</p>
-                    <p>The house needs to be cleaned. I'll do it after work.</p>
+                    <div class="task-content">
+                        <p>Clean House</p>
+                        <p>The house needs to be cleaned. I'll do it after work.</p>
 
-                    <div class="task-info">
-                        <div class="task-div">
-                            <img src="./assets/day-icon.svg">
-                            <p>10 may 2024</p>
+                        <div class="task-info">
+                            <div class="task-div">
+                                <img src="./assets/day-icon.svg">
+                                <p>10 may 2024</p>
+                            </div>
+
+                            <div class="task-div">
+                                <img src="./assets/folder-icon.svg">
+                                <p>House</p>
+                            </div>
+
+                            <p>High priority</p>
                         </div>
+                    </div>
 
-                        <div class="task-div">
-                            <img src="./assets/folder-icon.svg">
-                            <p>House</p>
-                        </div>
-
-                        <p>High priority</p>
+                    <div class="task-settings">
+                        <button>Complete</button>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                 </li>
 
                 <li class="task-item">
-                    <p>Read books</p>
-                    <p>Need to read some books.</p>
+                    <div class="task-content">
+                        <p>Read books</p>
+                        <p>Need to read some books.</p>
 
-                    <div class="task-info">
-                        <div class="task-div">
-                            <img src="./assets/day-icon.svg">
-                            <p>1 jun 2024</p>
+                        <div class="task-info">
+                            <div class="task-div">
+                                <img src="./assets/day-icon.svg">
+                                <p>1 jun 2024</p>
+                            </div>
+
+                            <div class="task-div">
+                                <img src="./assets/folder-icon.svg">
+                                <p>House</p>
+                            </div>
+
+                            <p>Medium priority</p>
                         </div>
-
-                        <div class="task-div">
-                            <img src="./assets/folder-icon.svg">
-                            <p>House</p>
-                        </div>
-
-                        <p>Medium priority</p>
+                    </div>
+                
+                    <div class="task-settings">
+                        <button>Complete</button>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                 </li>
             </ul>
@@ -141,7 +157,7 @@
     </div>
 
     <div class="overlay">
-        <div id="edit-modal">
+        <form id="edit-modal">
             <h2>Edit Task</h2>
 
             <input type="text" name="new-task-name" id="new-task-name" placeholder="Task name (required)" required>
@@ -155,7 +171,7 @@
                 </select>
 
                 <select name="new-project" id="new-project">
-                    <option value="no-project">None</option>
+                    <option value="no project">None</option>
                     <option value="house">House</option>
                     <option value="work">Work</option>
                     <option value="gym">Gym</option>
@@ -165,10 +181,10 @@
             <textarea name="new-notes" id="new-notes" placeholder="Notes (Optional)"></textarea>
 
             <div class="edit-buttons">
-                <button id="cancel-edit">Cancel</button>
+                <button id="cancel-edit" formnovalidate>Cancel</button>
                 <button id="save-edit">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="../dist/main.js"></script>

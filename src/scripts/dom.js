@@ -14,21 +14,29 @@ const closeModal = () => {
 const renderListItem = (name, date, priority, project, notes) => {
     taskList.insertAdjacentHTML('beforeend', `
     <li class="task-item">
-        <p>${name}</p>
-        <p>${notes}</p>
+        <div class="task-content">
+            <p>${name}</p>
+            <p>${notes}</p>
 
-        <div class="task-info">
-            <div class="task-div">
-                <img src="./assets/day-icon.svg">
-                <p>${date}</p>
+            <div class="task-info">
+                <div class="task-div">
+                    <img src="./assets/day-icon.svg">
+                    <p>${date}</p>
+                </div>
+
+                <div class="task-div">
+                    <img src="./assets/folder-icon.svg">
+                    <p>${project}</p>
+                </div>
+
+                <p>${priority} priority</p>
             </div>
+        </div>
 
-            <div class="task-div">
-                <img src="./assets/folder-icon.svg">
-                <p>${project}</p>
-            </div>
-
-            <p>${priority} priority</p>
+        <div class="task-settings">
+            <button>Complete</button>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     </li>
     `);

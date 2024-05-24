@@ -24,10 +24,11 @@ const addTask = () => {
     let priority = document.querySelector('#priority').value;
     let project = document.querySelector('#project').value;
     let notes = document.querySelector('#notes').value;
+    let index = getId();
 
     if(form.checkValidity() === true) {
-        let task = new Task(name, date, priority, project, notes);
-        localStorage.setItem(`task-${getId()}`, JSON.stringify(task));
+        let task = new Task(name, date, priority, project, notes, index);
+        localStorage.setItem(`task-${index}`, JSON.stringify(task));
         incrementId();
 
         console.log(localStorage);
@@ -37,11 +38,11 @@ const addTask = () => {
 
 /*
 const updateTask = () => {
-    let name = document.querySelector('#task-name-input').value;
-    let date = document.querySelector('#date-input').value;
-    let priority = document.querySelector('#priority-input').value;
-    let project = document.querySelector('#project-input').value;
-    let notes = document.querySelector('#notes-input').value;
+    let name = document.querySelector('#new-task-name').value;
+    let date = document.querySelector('#new-date').value;
+    let priority = document.querySelector('#new-priority').value;
+    let project = document.querySelector('#new-project').value;
+    let notes = document.querySelector('#new-notes').value;
 
     if(form.checkValidity() === true) {
         let task = new Task(name, date, priority, project, notes);
