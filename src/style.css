@@ -11,6 +11,8 @@
     --div-active-color: rgb(255, 109, 109);
     --info-item: rgb(167, 60, 60);
     --modal-box-color: rgb(155, 4, 4);
+    --overlay-color: rgb(182, 75, 75, 75%);
+    --edit-modal-color: rgb(255, 104, 104);
     --font-color: rgb(235, 235, 235);
 }
 
@@ -197,55 +199,72 @@ main > .title {
     padding: 7px 5px;
 }
 
-/*
-.editing-box {
-    background-color: var(--info-item);
-    padding: 15px;
-    margin-bottom: 10px;
-}
-
-.editing-box .top-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.editing-box .bottom-section {
+.overlay,
+#edit-modal {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
 }
 
-.editing-box input,
-.editing-box select,
-.editing-box textarea {
-    background-color: var(--background);
+.overlay {
+    display: none;
+    background-color: var(--overlay-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
-.editing-box input::placeholder,
-.editing-box textarea::placeholder {
-    color: black;
+#edit-modal {
+    background-color: var(--edit-modal-color);
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px;
 }
 
-.editing-box input,
-.editing-box select {
-    padding: 5px;
+#edit-modal > h2 {
+    margin-bottom: 15px;
 }
 
-.editing-box textarea {
-    resize: none;
-    padding: 7.5px;
-    height: 80px;
+#edit-modal > input,
+.modal-mid-section > select,
+#edit-modal > textarea,
+.edit-buttons > button {
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
 }
 
-.editing-box .bottom-section input,
-.editing-box .bottom-section select {
+.modal-mid-section > select {
     width: 125px;
 }
 
-.editing-box button {
-    width: 100px;
-    margin-bottom: 5px;
+#edit-modal > textarea {
+    height: 150px;
+    width: 300px;
+    resize: none;
 }
-*/
+
+.edit-buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.edit-buttons > button {
+    width: 80px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.edit-buttons > button:hover {
+    background-color: var(--info-item);
+    color: var(--font-color);
+    opacity: 0.9;
+}
+
+.edit-buttons > button:active {
+    transform: scale(0.9);
+}
