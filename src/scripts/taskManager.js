@@ -36,6 +36,9 @@ const addTask = () => {
     }
 }
 
+const markComplete = () => {console.log('marking complete');}
+const deleteTask = () => {console.log('deleting task');}
+
 /*
 const updateTask = () => {
     let name = document.querySelector('#new-task-name').value;
@@ -52,12 +55,8 @@ const updateTask = () => {
         console.log(getId());
     }
 }
-
-const removeTask = key => {
-    localStorage.removeItem(`task-${key}`);
-}
 */
 
 
 
-export { addTask };
+export { addTask, deleteTask, markComplete };

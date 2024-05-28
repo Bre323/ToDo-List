@@ -227,15 +227,14 @@ main > .title {
     padding: 7px 5px;
 }
 
-.overlay,
+#overlay,
 #edit-modal {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.overlay {
-    display: none;
+#overlay {
     background-color: var(--overlay-color);
     position: fixed;
     top: 0;
