@@ -67,92 +67,38 @@
                 <h2>All Tasks</h2>
             </div>
 
-            <ul class="task-list">
-                <dialog class="modal-box">
-                    <form>
-                        <div class="left-form">
-                            <input type="text" name="task-name" id="task-name" placeholder="Task name (required)" required>
-                            <input type="date" name="date" id="date" required>
+            <dialog class="modal-box">
+                <form>
+                    <div class="left-form">
+                        <input type="text" name="task-name" id="task-name" placeholder="Task name (required)" required>
+                        <input type="date" name="date" id="date" required>
 
-                            <select name="priority" id="priority" required>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
+                        <select name="priority" id="priority" required>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
 
-                            <select name="project" id="project">
-                                <option value="no-project">None</option>
-                                <option value="house">House</option>
-                                <option value="work">Work</option>
-                                <option value="gym">Gym</option>
-                            </select>
-                        </div>
-
-                        <div class="right-form">
-                            <textarea name="notes" id="notes" placeholder="Notes (Optional)"></textarea>
-
-                            <div class="form-buttons">
-                                <button id="cancel-button" formnovalidate>Cancel</button>
-                                <button id="save-button">Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </dialog>
-
-                <li class="task-item">
-                    <div class="task-content">
-                        <p>Clean House</p>
-                        <p>The house needs to be cleaned. I'll do it after work.</p>
-
-                        <div class="task-info">
-                            <div class="task-div">
-                                <img src="./assets/day-icon.svg">
-                                <p>10 may 2024</p>
-                            </div>
-
-                            <div class="task-div">
-                                <img src="./assets/folder-icon.svg">
-                                <p>House</p>
-                            </div>
-
-                            <p>High priority</p>
-                        </div>
+                        <select name="project" id="project">
+                            <option value="no-project">None</option>
+                            <option value="house">House</option>
+                            <option value="work">Work</option>
+                            <option value="gym">Gym</option>
+                        </select>
                     </div>
 
-                    <div class="task-settings">
-                        <button class="complete-setting">Complete</button>
-                        <button class="edit-setting">Edit</button>
-                        <button class="delete-setting">Delete</button>
-                    </div>
-                </li>
+                    <div class="right-form">
+                        <textarea name="notes" id="notes" placeholder="Notes (Optional)"></textarea>
 
-                <li class="task-item">
-                    <div class="task-content">
-                        <p>Read books</p>
-                        <p>Need to read some books.</p>
-
-                        <div class="task-info">
-                            <div class="task-div">
-                                <img src="./assets/day-icon.svg">
-                                <p>1 jun 2024</p>
-                            </div>
-
-                            <div class="task-div">
-                                <img src="./assets/folder-icon.svg">
-                                <p>House</p>
-                            </div>
-
-                            <p>Medium priority</p>
+                        <div class="form-buttons">
+                            <button id="cancel-button" formnovalidate>Cancel</button>
+                            <button id="save-button">Save</button>
                         </div>
                     </div>
-                
-                    <div class="task-settings">
-                        <button class="complete-setting">Complete</button>
-                        <button class="edit-setting">Edit</button>
-                        <button class="delete-setting">Delete</button>
-                    </div>
-                </li>
-            </ul>
+                </form>
+            </dialog>
+
+            <ul class="task-list"></ul>
         </main>
     </div>
 

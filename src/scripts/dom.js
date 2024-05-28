@@ -77,6 +77,8 @@ const renderListItem = (name, date, priority, project, notes) => {
 }
 
 const renderTasks = () => {
+    taskList.innerHTML = '';
+
     for(let i = 1; i < localStorage.length; i++) {
         let task = JSON.parse(localStorage[`task-${i - 1}`]);
 
