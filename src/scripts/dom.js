@@ -45,9 +45,14 @@ const renderEditModal = () => {
     `);
 }
 
-const renderListItem = (name, date, priority, project, notes) => {
+const removeEditModal = () => {
+    let overlay = document.querySelector('#overlay');
+    document.body.removeChild(overlay);
+}
+
+const renderListItem = (name, date, priority, project, notes, index) => {
     taskList.insertAdjacentHTML('beforeend', `
-    <li class="task-item">
+    <li class="task-item" data-index="${index}">
         <div class="task-content">
             <p>${name}</p>
             <p>${notes}</p>
@@ -88,10 +93,11 @@ const renderTasks = () => {
             task.priority,
             task.project,
             task.notes,
+            task.index
         );
     }
 }
 
 
 
-export { openModal, closeModal, renderTasks, renderEditModal };
+export { openModal, closeModal, renderTasks, renderEditModal, removeEditModal };

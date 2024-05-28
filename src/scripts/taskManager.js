@@ -47,13 +47,12 @@ const updateTask = () => {
 
     if(editModal.checkValidity() === true) {
         let task = new Task(name, date, priority, project, notes);
-        localStorage.setItem(`task-${getId()}`, JSON.stringify(task));
+        localStorage.setItem(`task-${task.index}`, JSON.stringify(task));
 
         console.log(localStorage);
         console.log(getId());
     }
     console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}`);
-    console.log(form.checkValidity());
 }
 
 const markComplete = () => {console.log('marking complete');}
