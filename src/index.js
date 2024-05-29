@@ -6,7 +6,7 @@ let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
 
 
-const addEventsToEditModal = () => {
+const addEventsToEditModal = (index) => {
     let cancelEdit = document.querySelector('#cancel-edit');
     let saveEdit = document.querySelector('#save-edit');
     let editModal = document.querySelector('#edit-modal');
@@ -16,7 +16,11 @@ const addEventsToEditModal = () => {
 
     editModal.addEventListener('submit', event => event.preventDefault());
     cancelEdit.addEventListener('click', removeEditModal);
-    saveEdit.addEventListener('click', updateTask);
+    saveEdit.addEventListener('click', () => {
+        updateTask(index);
+        removeEditModal();
+        renderTasks();
+    });
 }
 
 const addEventToCompleteButtons = () => {
@@ -33,9 +37,13 @@ const addEventToEditButtons = () => {
     console.log(editSetting);
 
     for(let i = 0; i < editSetting.length; i++) {
-        editSetting[i].addEventListener('click', () => {
+        editSetting[i].addEventListener('click', event => {
+            let item = event.target.parentNode.parentNode;
+
+            console.log(item);
+            console.log(item.dataset.index);
             renderEditModal();
-            addEventsToEditModal();
+            addEventsToEditModal(item.dataset.index);
         });
     }    
 }
@@ -45,7 +53,14 @@ const addEventToDeleteButtons = () => {
     console.log(deleteSetting);
 
     for(let i = 0; i < deleteSetting.length; i++) {
-        deleteSetting[i].addEventListener('click', deleteTask);
+        deleteSetting[i].addEventListener('click', event => {
+            let item = event.target.parentNode.parentNode;
+
+            console.log(item);
+            console.log(item.dataset.index);
+            deleteTask(item.dataset.index);
+            renderTasks();
+        });
     }
 }
 

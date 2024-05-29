@@ -37,26 +37,31 @@ const addTask = () => {
     }
 }
 
-const updateTask = () => {
+const updateTask = (taskIndex) => {
     let name = document.querySelector('#new-task-name').value;
     let date = document.querySelector('#new-date').value;
     let priority = document.querySelector('#new-priority').value;
     let project = document.querySelector('#new-project').value;
     let notes = document.querySelector('#new-notes').value;
+    let index = taskIndex;
     let editModal = document.querySelector('#edit-modal');
 
+
     if(editModal.checkValidity() === true) {
-        let task = new Task(name, date, priority, project, notes);
+        let task = new Task(name, date, priority, project, notes, index);
         localStorage.setItem(`task-${task.index}`, JSON.stringify(task));
 
         console.log(localStorage);
         console.log(getId());
     }
-    console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}`);
+    console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}, ${index}`);
 }
 
 const markComplete = () => {console.log('marking complete');}
-const deleteTask = () => {console.log('deleting task');}
+
+const deleteTask = (taskIndex) => {
+    //localStorage.removeItem(`task-${taskIndex}`);
+}
 
 
 
