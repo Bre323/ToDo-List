@@ -6,26 +6,37 @@ let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
 
 
+const initializePage = () => {
+    renderTasks();
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
+    console.log(localStorage);
+}
+
+
 const addEventsToEditModal = (index) => {
     let cancelEdit = document.querySelector('#cancel-edit');
     let saveEdit = document.querySelector('#save-edit');
     let editModal = document.querySelector('#edit-modal');
-    console.log(cancelEdit);
-    console.log(saveEdit);
-    console.log(editModal);
 
     editModal.addEventListener('submit', event => event.preventDefault());
     cancelEdit.addEventListener('click', removeEditModal);
     saveEdit.addEventListener('click', () => {
-        updateTask(index);
+        let name = document.querySelector('#new-task-name').value;
+        let date = document.querySelector('#new-date').value;
+        let priority = document.querySelector('#new-priority').value;
+        let project = document.querySelector('#new-project').value;
+        let notes = document.querySelector('#new-notes').value;
+
+        updateTask(name, date, priority, project, notes, index);
         removeEditModal();
-        renderTasks();
+        initializePage();
     });
 }
 
 const addEventToCompleteButtons = () => {
     let completeSetting = document.querySelectorAll('.complete-setting');
-    console.log(completeSetting);
 
     for(let i = 0; i < completeSetting.length; i++) {
         completeSetting[i].addEventListener('click', markComplete);
@@ -34,7 +45,6 @@ const addEventToCompleteButtons = () => {
 
 const addEventToEditButtons = () => {
     let editSetting = document.querySelectorAll('.edit-setting');
-    console.log(editSetting);
 
     for(let i = 0; i < editSetting.length; i++) {
         editSetting[i].addEventListener('click', event => {
@@ -50,7 +60,6 @@ const addEventToEditButtons = () => {
 
 const addEventToDeleteButtons = () => {
     let deleteSetting = document.querySelectorAll('.delete-setting');
-    console.log(deleteSetting);
 
     for(let i = 0; i < deleteSetting.length; i++) {
         deleteSetting[i].addEventListener('click', event => {
@@ -59,27 +68,26 @@ const addEventToDeleteButtons = () => {
             console.log(item);
             console.log(item.dataset.index);
             deleteTask(item.dataset.index);
-            renderTasks();
+            initializePage();
         });
     }
 }
 
-const initializePage = () => {
-    renderTasks();
-    addEventToCompleteButtons();
-    addEventToEditButtons();
-    addEventToDeleteButtons();
-    console.log(localStorage);
-}
 
 
 form.addEventListener('submit', event => event.preventDefault());
 addTaskButton.addEventListener('click', openModal);
 cancelButton.addEventListener('click', closeModal);
 saveButton.addEventListener('click', () => {
-    addTask();
+    let name = document.querySelector('#task-name').value;
+    let date = document.querySelector('#date').value;
+    let priority = document.querySelector('#priority').value;
+    let project = document.querySelector('#project').value;
+    let notes = document.querySelector('#notes').value;
+
+    addTask(name, date, priority, project, notes);
     closeModal();
-    renderTasks();
+    initializePage();
 });
 
 
