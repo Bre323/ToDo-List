@@ -45,15 +45,27 @@ const updateTask = (name, date, priority, project, notes, index) => {
     console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}, ${index}`);
 }
 
-
 /*
-const markComplete = () => {console.log('marking complete');}
+const markComplete = () => {
+    console.log('marking complete');
+}
 
 const deleteTask = (taskIndex) => {
     localStorage.removeItem(`task-${taskIndex}`);
 }
 */
 
+const getTasks = () => {
+    const tasks = [];
+
+    for(let i = 0; i < getId(); i++) {
+        localStorage.getItem(`task-${i}`) ? 
+            tasks.push(JSON.parse(localStorage.getItem(`task-${i}`))) : null;
+    }
+
+    return tasks;
+}
 
 
-export { addTask, updateTask, deleteTask, markComplete };
+
+export { addTask, updateTask, deleteTask, markComplete, getTasks };

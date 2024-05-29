@@ -1,5 +1,5 @@
 import { closeModal, openModal, renderTasks, renderEditModal, removeEditModal } from "./scripts/dom";
-import { addTask, updateTask, deleteTask, markComplete } from "./scripts/taskManager";
+import { addTask, updateTask, deleteTask, markComplete, getTasks } from "./scripts/taskManager";
 let addTaskButton = document.querySelector('#add-task');
 let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
@@ -11,7 +11,6 @@ const initializePage = () => {
     addEventToCompleteButtons();
     addEventToEditButtons();
     addEventToDeleteButtons();
-    console.log(localStorage);
 }
 
 
@@ -91,4 +90,5 @@ saveButton.addEventListener('click', () => {
 });
 
 
+console.log(getTasks());
 initializePage();
