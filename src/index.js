@@ -1,5 +1,5 @@
 import { closeModal, openModal, renderTasks, renderEditModal, removeEditModal } from "./scripts/dom";
-import { addTask, updateTask, deleteTask, markComplete, getTasks } from "./scripts/taskManager";
+import { addTask, updateTask, deleteTask, markComplete, getTasks, getTasksToday, getTasksWeek, getTasksMonth } from "./scripts/taskManager";
 let addTaskButton = document.querySelector('#add-task');
 let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
@@ -93,4 +93,7 @@ saveButton.addEventListener('click', () => {
 
 
 console.log(getTasks());
+console.log(getTasksToday());
+console.log(getTasksWeek());
+console.log(getTasksMonth());
 initializePage();

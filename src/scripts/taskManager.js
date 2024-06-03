@@ -1,5 +1,6 @@
-import { compareAsc, format } from "date-fns";
+import { compareAsc, format, isSameWeek, isThisMonth, isThisWeek } from "date-fns";
 import Task from "./task";
+import { isSameMonth } from "date-fns/isSameMonth";
 let form = document.querySelector('form');
 
 
@@ -68,6 +69,36 @@ const getTasks = () => {
     return tasks;
 }
 
+const getTasksToday = () => {
+    const today = format(new Date(), 'yyyy-MM-dd');
+    let tasks = getTasks();
+
+    tasks = tasks.filter(task => task.date == today);
+
+    return tasks;
+}
+
+const getTasksWeek = () => {
+    let tasks = getTasks();
+    tasks = tasks.filter(task => isThisWeek(task.date));
+    return tasks;
+}
+
+const getTasksMonth = () => {
+    let tasks = getTasks();
+    tasks = tasks.filter(task => isThisMonth(task.date));
+    return tasks;
+}
 
 
-export { addTask, updateTask, deleteTask, markComplete, getTasks };
+
+export { 
+    addTask, 
+    updateTask, 
+    deleteTask, 
+    markComplete, 
+    getTasks, 
+    getTasksToday, 
+    getTasksWeek, 
+    getTasksMonth 
+};
