@@ -1,3 +1,4 @@
+import { compareAsc, format } from "date-fns";
 import Task from "./task";
 let form = document.querySelector('form');
 
@@ -45,15 +46,16 @@ const updateTask = (name, date, priority, project, notes, index) => {
     console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}, ${index}`);
 }
 
-/*
-const markComplete = () => {
-    console.log('marking complete');
+const markComplete = (event) => {
+    let listItem = event.target.parentNode.parentNode;  //<li class="list-item"></li>
+    let itemTitle = listItem.children[0].children[0];   //<p>Title</p>
+    listItem.style.backgroundColor = '#999999';
+    itemTitle.style.textDecorationLine = 'line-through';
 }
 
 const deleteTask = (taskIndex) => {
-    localStorage.removeItem(`task-${taskIndex}`);
+    //localStorage.removeItem(`task-${taskIndex}`);
 }
-*/
 
 const getTasks = () => {
     const tasks = [];

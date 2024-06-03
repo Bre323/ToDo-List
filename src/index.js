@@ -38,7 +38,9 @@ const addEventToCompleteButtons = () => {
     let completeSetting = document.querySelectorAll('.complete-setting');
 
     for(let i = 0; i < completeSetting.length; i++) {
-        completeSetting[i].addEventListener('click', markComplete);
+        completeSetting[i].addEventListener('click', event => {
+            markComplete(event);
+        });
     }
 }
 
