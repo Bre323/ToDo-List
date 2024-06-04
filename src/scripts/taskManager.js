@@ -20,43 +20,40 @@ const incrementId = () => {
     return localStorage.setItem("id", id);
 }
 
-const addTask = (name, date, priority, project, notes) => {
+const addTask = (name, date, priority, project, notes, complete = false) => {
     let index = parseInt(getId());
 
     if(form.checkValidity() === true) {
-        let task = new Task(name, date, priority, project, notes, index);
+        let task = new Task(name, date, priority, project, notes, complete, index);
         localStorage.setItem(`task-${index}`, JSON.stringify(task));
         incrementId();
-
-        console.log(localStorage);
-        console.log(getId());
-        console.log(index);
     }
 }
 
 const updateTask = (name, date, priority, project, notes, index) => {
     let editModal = document.querySelector('#edit-modal');
+    let complete = false;
 
     if(editModal.checkValidity() === true) {
-        let task = new Task(name, date, priority, project, notes, index);
+        let task = new Task(name, date, priority, project, notes, complete, index);
         localStorage.setItem(`task-${task.index}`, JSON.stringify(task));
-
-        console.log(localStorage);
-        console.log(getId());
     }
-    console.log(`${name}, ${date}, ${priority}, ${project}, ${notes}, ${index}`);
 }
 
 const markComplete = (event) => {
+    let completeButton = event.target;  //<button class="complete-setting">Complete</button>
     let listItem = event.target.parentNode.parentNode;  //<li class="list-item" data-index="##"></li>
     let itemTitle = listItem.children[0].children[0];   //<p>Title</p>
     let index = listItem.dataset.index;
+    let storageItem = JSON.parse(localStorage.getItem(`task-${index}`));
+    storageItem.complete = true;
 
-    /*
-    listItem.style.backgroundColor = '#999999';
-    itemTitle.style.textDecorationLine = 'line-through';
-    */
-
+    if(storageItem.complete) {
+        completeButton.innerText = 'Unmark';
+        completeButton.style.backgroundColor = '#999999';
+        listItem.style.backgroundColor = '#999999';
+        itemTitle.style.textDecorationLine = 'line-through';
+    }
 }
 
 const deleteTask = (taskIndex) => {
