@@ -53,9 +53,12 @@ aside > h1 {
     border-top: 2px solid black;
 }
 
-.tasks > #add-task > h2,
-.projects > h2 {
+.tasks > #add-task > h2 {
     font-size: 1.3rem;
+}
+
+.projects > #add-project > h2 {
+    font-size: 1rem;
 }
 
 .projects > h2 {
@@ -67,12 +70,33 @@ aside > h1 {
     font-size: 0.95rem;
 }
 
+.projects > div > .project-title {
+    display: flex;
+    gap: 10px;
+}
+
+.projects > .project-item {
+    justify-content: space-between;
+}
+
+.project-item > img {
+    transition: 0.3s;
+}
+
+.project-item > img:hover {
+    transform: scale(1.1);
+}
+
+.project-item > img:active {
+    transform: scale(0.9);
+}
+
 .tasks > div,
 .projects > div {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin: 8px 0;
+    margin: 6px 0;
     padding: 5px 0;
     cursor: pointer;
     transition: 0.3s;
