@@ -5,21 +5,20 @@ let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
 let titleText = document.querySelector('.title > h2');
-let tasksArray = [];
-let tasksString = "";
+let taskArray = [];
 
 
+const setVisibleTasks = (taskItems, titleString) => {
+    taskArray = taskItems;
+    titleText.innerHTML = titleString;
+}
 
 const initializePage = () => {
-    renderTasks();
+    setVisibleTasks(getTasks(), 'All Tasks');
+    renderTasks(taskArray);
     addEventToCompleteButtons();
     addEventToEditButtons();
     addEventToDeleteButtons();
-}
-
-const setVisibleTasks = (taskItems, titleString) => {
-    tasksArray = taskItems;
-    titleText.innerHTML = titleString;
 }
 
 
@@ -39,7 +38,10 @@ const addEventsToEditModal = (index) => {
 
         updateTask(name, date, priority, project, notes, index);
         removeEditModal();
-        initializePage();
+        renderTasks(taskArray);
+        addEventToCompleteButtons();
+        addEventToEditButtons();
+        addEventToDeleteButtons();
     });
 }
 
@@ -78,7 +80,10 @@ const addEventToDeleteButtons = () => {
             console.log(item);
             console.log(item.dataset.index);
             deleteTask(item.dataset.index);
-            initializePage();
+            renderTasks(taskArray);
+            addEventToCompleteButtons();
+            addEventToEditButtons();
+            addEventToDeleteButtons();
         });
     }
 }
@@ -97,7 +102,10 @@ saveButton.addEventListener('click', () => {
 
     addTask(name, date, priority, project, notes);
     closeModal();
-    initializePage();
+    renderTasks(taskArray);
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
 });
 
 

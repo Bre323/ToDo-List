@@ -81,11 +81,11 @@ const renderListItem = (name, date, priority, project, notes, index) => {
     `);
 }
 
-const renderTasks = () => {
+const renderTasks = (taskArray) => {
     taskList.innerHTML = '';
 
-    for(let i = 1; i < localStorage.length; i++) {
-        let task = JSON.parse(localStorage[`task-${i - 1}`]);
+    for(let i = 0; i < taskArray.length; i++) {
+        let task = taskArray[i];
 
         renderListItem(
             task.name,
@@ -95,6 +95,8 @@ const renderTasks = () => {
             task.notes,
             task.index
         );
+
+        console.log(taskArray[i]);
     }
 }
 
