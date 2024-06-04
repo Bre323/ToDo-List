@@ -1,6 +1,10 @@
 import { closeModal, openModal, renderTasks, renderEditModal, removeEditModal } from "./scripts/dom";
 import { addTask, updateTask, deleteTask, markComplete, getTasks, getTasksToday, getTasksWeek, getTasksMonth } from "./scripts/taskManager";
 let addTaskButton = document.querySelector('#add-task');
+let allTasksButton = document.querySelector('#all-tasks');
+let todayTasksButton = document.querySelector('#today-tasks');
+let weekTasksButton = document.querySelector('#week-tasks');
+let monthTasksButton = document.querySelector('#month-tasks');
 let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
@@ -92,6 +96,36 @@ const addEventToDeleteButtons = () => {
 
 form.addEventListener('submit', event => event.preventDefault());
 addTaskButton.addEventListener('click', openModal);
+
+allTasksButton.addEventListener('click', () => {
+    setVisibleTasks(getTasks(), 'All Tasks');
+    renderTasks(taskArray);
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
+});
+todayTasksButton.addEventListener('click', () => {
+    setVisibleTasks(getTasksToday(), 'Today Tasks');
+    renderTasks(taskArray);
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
+});
+weekTasksButton.addEventListener('click', () => {
+    setVisibleTasks(getTasksWeek(), 'Week Tasks');
+    renderTasks(taskArray);
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
+});
+monthTasksButton.addEventListener('click', () => {
+    setVisibleTasks(getTasksMonth(), 'Month Tasks');
+    renderTasks(taskArray);
+    addEventToCompleteButtons();
+    addEventToEditButtons();
+    addEventToDeleteButtons();
+});
+
 cancelButton.addEventListener('click', closeModal);
 saveButton.addEventListener('click', () => {
     let name = document.querySelector('#task-name').value;
