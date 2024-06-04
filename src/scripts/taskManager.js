@@ -48,14 +48,19 @@ const updateTask = (name, date, priority, project, notes, index) => {
 }
 
 const markComplete = (event) => {
-    let listItem = event.target.parentNode.parentNode;  //<li class="list-item"></li>
+    let listItem = event.target.parentNode.parentNode;  //<li class="list-item" data-index="##"></li>
     let itemTitle = listItem.children[0].children[0];   //<p>Title</p>
+    let index = listItem.dataset.index;
+
+    /*
     listItem.style.backgroundColor = '#999999';
     itemTitle.style.textDecorationLine = 'line-through';
+    */
+
 }
 
 const deleteTask = (taskIndex) => {
-    //localStorage.removeItem(`task-${taskIndex}`);
+    localStorage.removeItem(`task-${taskIndex}`);
 }
 
 const getTasks = () => {

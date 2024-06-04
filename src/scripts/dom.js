@@ -95,8 +95,6 @@ const renderTasks = (taskArray) => {
             task.notes,
             task.index
         );
-
-        console.log(taskArray[i]);
     }
 }
 

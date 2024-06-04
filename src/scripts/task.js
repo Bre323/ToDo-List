@@ -5,6 +5,7 @@ class Task {
         this.priority = priority;
         this.project = project;
         this.notes = notes;
+        this.complete = false;
         this.index = index;
     }
 }

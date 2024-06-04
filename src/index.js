@@ -42,6 +42,7 @@ const addEventsToEditModal = (index) => {
 
         updateTask(name, date, priority, project, notes, index);
         removeEditModal();
+        setVisibleTasks(getTasks(), 'All Tasks');
         renderTasks(taskArray);
         addEventToCompleteButtons();
         addEventToEditButtons();
@@ -66,8 +67,6 @@ const addEventToEditButtons = () => {
         editSetting[i].addEventListener('click', event => {
             let item = event.target.parentNode.parentNode;
 
-            console.log(item);
-            console.log(item.dataset.index);
             renderEditModal();
             addEventsToEditModal(item.dataset.index);
         });
@@ -81,9 +80,8 @@ const addEventToDeleteButtons = () => {
         deleteSetting[i].addEventListener('click', event => {
             let item = event.target.parentNode.parentNode;
 
-            console.log(item);
-            console.log(item.dataset.index);
             deleteTask(item.dataset.index);
+            setVisibleTasks(getTasks(), 'All Tasks');
             renderTasks(taskArray);
             addEventToCompleteButtons();
             addEventToEditButtons();
@@ -136,6 +134,7 @@ saveButton.addEventListener('click', () => {
 
     addTask(name, date, priority, project, notes);
     closeModal();
+    setVisibleTasks(getTasks(), 'All Tasks');
     renderTasks(taskArray);
     addEventToCompleteButtons();
     addEventToEditButtons();
