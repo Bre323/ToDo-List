@@ -4,6 +4,10 @@ let addTaskButton = document.querySelector('#add-task');
 let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
+let titleText = document.querySelector('.title > h2');
+let tasksArray = [];
+let tasksString = "";
+
 
 
 const initializePage = () => {
@@ -11,6 +15,11 @@ const initializePage = () => {
     addEventToCompleteButtons();
     addEventToEditButtons();
     addEventToDeleteButtons();
+}
+
+const setVisibleTasks = (taskItems, titleString) => {
+    tasksArray = taskItems;
+    titleText.innerHTML = titleString;
 }
 
 
@@ -92,8 +101,5 @@ saveButton.addEventListener('click', () => {
 });
 
 
-console.log(getTasks());
-console.log(getTasksToday());
-console.log(getTasksWeek());
-console.log(getTasksMonth());
+
 initializePage();
