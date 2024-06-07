@@ -45,7 +45,24 @@ const renderEditModal = () => {
     `);
 }
 
-const removeEditModal = () => {
+const renderAddProjectModal = () => {
+    document.body.insertAdjacentHTML('beforeend', `
+    <div id="overlay">
+        <form id="edit-modal">
+            <h2>Add Project</h2>
+
+            <input type="text" name="project-name" id="project-name" placeholder="Project name (required)" required>
+
+            <div class="edit-buttons">
+                <button id="cancel-project" formnovalidate>Cancel</button>
+                <button id="save-project">Save</button>
+            </div>
+        </form>
+    </div>
+`);
+}
+
+const removeModal = () => {
     let overlay = document.querySelector('#overlay');
     document.body.removeChild(overlay);
 }
@@ -100,4 +117,4 @@ const renderTasks = (taskArray) => {
 
 
 
-export { openModal, closeModal, renderTasks, renderEditModal, removeEditModal };
+export { openModal, closeModal, renderTasks, renderEditModal, renderAddProjectModal, removeModal };

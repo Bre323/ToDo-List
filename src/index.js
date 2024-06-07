@@ -1,10 +1,11 @@
-import { closeModal, openModal, renderTasks, renderEditModal, removeEditModal } from "./scripts/dom";
+import { closeModal, openModal, renderTasks, renderEditModal, renderAddProjectModal, removeModal } from "./scripts/dom";
 import { addTask, updateTask, deleteTask, markComplete, getTasks, getTasksToday, getTasksWeek, getTasksMonth } from "./scripts/taskManager";
 let addTaskButton = document.querySelector('#add-task');
 let allTasksButton = document.querySelector('#all-tasks');
 let todayTasksButton = document.querySelector('#today-tasks');
 let weekTasksButton = document.querySelector('#week-tasks');
 let monthTasksButton = document.querySelector('#month-tasks');
+let addProjectButton = document.querySelector('#add-project');
 let cancelButton = document.querySelector('#cancel-button');
 let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
@@ -25,6 +26,18 @@ const initializePage = () => {
     addEventToDeleteButtons();
 }
 
+const addEventsToProjectModal = () => {
+    let editModal = document.querySelector('#edit-modal');
+    let cancelProjectButton = document.querySelector('#cancel-project');
+    let saveProjectButton = document.querySelector('#save-project');
+
+    editModal.addEventListener('submit', event => event.preventDefault());
+    cancelProjectButton.addEventListener('click', removeModal);
+    saveProjectButton.addEventListener('click', () => {
+        removeModal();
+        //addProject();
+    });
+}
 
 const addEventsToEditModal = (index) => {
     let cancelEdit = document.querySelector('#cancel-edit');
@@ -32,7 +45,7 @@ const addEventsToEditModal = (index) => {
     let editModal = document.querySelector('#edit-modal');
 
     editModal.addEventListener('submit', event => event.preventDefault());
-    cancelEdit.addEventListener('click', removeEditModal);
+    cancelEdit.addEventListener('click', removeModal);
     saveEdit.addEventListener('click', () => {
         let name = document.querySelector('#new-task-name').value;
         let date = document.querySelector('#new-date').value;
@@ -41,7 +54,7 @@ const addEventsToEditModal = (index) => {
         let notes = document.querySelector('#new-notes').value;
 
         updateTask(name, date, priority, project, notes, index);
-        removeEditModal();
+        removeModal();
         setVisibleTasks(getTasks(), 'All Tasks');
         renderTasks(taskArray);
         addEventToCompleteButtons();
@@ -102,6 +115,7 @@ allTasksButton.addEventListener('click', () => {
     addEventToEditButtons();
     addEventToDeleteButtons();
 });
+
 todayTasksButton.addEventListener('click', () => {
     setVisibleTasks(getTasksToday(), 'Today Tasks');
     renderTasks(taskArray);
@@ -109,6 +123,7 @@ todayTasksButton.addEventListener('click', () => {
     addEventToEditButtons();
     addEventToDeleteButtons();
 });
+
 weekTasksButton.addEventListener('click', () => {
     setVisibleTasks(getTasksWeek(), 'Week Tasks');
     renderTasks(taskArray);
@@ -116,12 +131,18 @@ weekTasksButton.addEventListener('click', () => {
     addEventToEditButtons();
     addEventToDeleteButtons();
 });
+
 monthTasksButton.addEventListener('click', () => {
     setVisibleTasks(getTasksMonth(), 'Month Tasks');
     renderTasks(taskArray);
     addEventToCompleteButtons();
     addEventToEditButtons();
     addEventToDeleteButtons();
+});
+
+addProjectButton.addEventListener('click', () => {
+    renderAddProjectModal();
+    addEventsToProjectModal();
 });
 
 cancelButton.addEventListener('click', closeModal);
