@@ -22,16 +22,29 @@ const incrementProjectId = () => {
 }
 
 const getProjects = () => {
-    console.log('getProjects function');
+    const projects = [];
+
+    for(let i = 0; i < getProjectId(); i++) {
+        localStorage.getItem(`project-${i}`) ? 
+            tasks.push(JSON.parse(localStorage.getItem(`project-${i}`))) : null;
+    }
+
+    return projects;
 }
 
-const addProject = () => {
-    console.log('addProject function');
+const addProject = (name) => {
+    let index = parseInt(getProjectId());
+
+    if(form.checkValidity() === true) {
+        let project = new Project(name, index);
+        localStorage.setItem(`project-${index}`, JSON.stringify(project));
+        incrementProjectId();
+    }
 }
 
-const removeProject = () => {
-    console.log('removeProject function');
+const deleteProject = (projectIndex) => {
+    localStorage.removeItem(`project-${projectIndex}`);
 }
 
 
-export { getProjects, addProject, removeProject }
+export { getProjects, addProject, deleteProject }
