@@ -1,5 +1,6 @@
-import { closeModal, openModal, renderTasks, renderEditModal, renderAddProjectModal, removeModal } from "./scripts/dom";
+import { closeModal, openModal, renderTasks, renderProjects, renderEditModal, renderAddProjectModal, removeModal } from "./scripts/dom";
 import { addTask, updateTask, deleteTask, markComplete, getTasks, getTasksToday, getTasksWeek, getTasksMonth } from "./scripts/taskManager";
+import { addProject, deleteProject, getProjects } from "./scripts/projectManager";
 let addTaskButton = document.querySelector('#add-task');
 let allTasksButton = document.querySelector('#all-tasks');
 let todayTasksButton = document.querySelector('#today-tasks');
@@ -34,8 +35,12 @@ const addEventsToProjectModal = () => {
     editModal.addEventListener('submit', event => event.preventDefault());
     cancelProjectButton.addEventListener('click', removeModal);
     saveProjectButton.addEventListener('click', () => {
+        let projectName = document.querySelector('#project-name').value;
+
+        console.log(projectName);
+        addProject(projectName);
         removeModal();
-        //addProject();
+        console.log(getProjects());
     });
 }
 
@@ -163,5 +168,5 @@ saveButton.addEventListener('click', () => {
 });
 
 
-
+console.log(getProjects());
 initializePage();

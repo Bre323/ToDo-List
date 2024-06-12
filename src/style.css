@@ -66,16 +66,16 @@ aside > h1 {
 }
 
 .tasks > div > p,
-.projects > div > p {
+.project-item > div > p {
     font-size: 0.95rem;
 }
 
-.projects > div > .project-title {
+.project-list > div > .project-title {
     display: flex;
     gap: 10px;
 }
 
-.projects > .project-item {
+.project-list > .project-item {
     justify-content: space-between;
 }
 
@@ -92,7 +92,8 @@ aside > h1 {
 }
 
 .tasks > div,
-.projects > div {
+.projects > div,
+.project-item {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -103,13 +104,15 @@ aside > h1 {
 }
 
 .tasks > div:hover,
-.projects > div:hover {
+.projects > div:hover,
+.project-item:hover {
     background-color: var(--div-hover-color);
     padding-left: 10px;
 }
 
 .tasks > div:active,
-.projects > div:active {
+.projects > div:active,
+.project-item:active {
     background-color: var(--div-active-color);
     transform: scale(0.95);
 }

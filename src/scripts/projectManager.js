@@ -1,3 +1,5 @@
+let form = document.querySelector('form');
+
 class Project {
     constructor(name, index) {
         this.name = name;

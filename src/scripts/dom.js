@@ -1,5 +1,6 @@
 let modalBox = document.querySelector('dialog');
 let taskList = document.querySelector('.task-list');
+let projectList = document.querySelector('.project-list');
 
 
 const openModal = () => {
@@ -98,6 +99,19 @@ const renderListItem = (name, date, priority, project, notes, index) => {
     `);
 }
 
+const renderProjectItem = (name, projectKey) => {
+    document.body.insertAdjacentHTML('beforeend', `
+    <div class="project-item" data-projectKey="${projectKey}">
+        <div class="project-title">
+            <img src="./assets/folder-icon.svg">
+            <p>${name}</p>
+        </div>
+
+        <img class="delete-folder" src="./assets/delete-icon.svg" alt="delete icon">
+    </div>    
+    `);
+}
+
 const renderTasks = (taskArray) => {
     taskList.innerHTML = '';
 
@@ -115,6 +129,19 @@ const renderTasks = (taskArray) => {
     }
 }
 
+const renderProjects = (projectArray) => {
+    projectList.innerHTML = '';
+
+    for(let i = 0; i < projectArray.length; i++) {
+        let project = projectArray[i];
+
+        renderProjectItem(
+            project.name,
+            project.index
+        );
+    }
+}
 
 
-export { openModal, closeModal, renderTasks, renderEditModal, renderAddProjectModal, removeModal };
+
+export { openModal, closeModal, renderTasks, renderProjects, renderEditModal, renderAddProjectModal, removeModal };
