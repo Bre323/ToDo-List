@@ -1,8 +1,17 @@
-import { compareAsc, format, isSameWeek, isThisMonth, isThisWeek } from "date-fns";
-import Task from "./task";
-import { isSameMonth } from "date-fns/isSameMonth";
+import { format, isThisMonth, isThisWeek } from "date-fns";
 let form = document.querySelector('form');
 
+class Task {
+    constructor(name, date, priority, project, notes, complete, index) {
+        this.name = name;
+        this.date = date;
+        this.priority = priority;
+        this.project = project;
+        this.notes = notes;
+        this.complete = complete;
+        this.index = index;
+    }
+}
 
 
 const getId = () => {
