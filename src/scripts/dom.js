@@ -100,7 +100,7 @@ const renderListItem = (name, date, priority, project, notes, index) => {
 }
 
 const renderProjectItem = (name, projectKey) => {
-    document.body.insertAdjacentHTML('beforeend', `
+    projectList.insertAdjacentHTML('beforeend', `
     <div class="project-item" data-projectKey="${projectKey}">
         <div class="project-title">
             <img src="./assets/folder-icon.svg">

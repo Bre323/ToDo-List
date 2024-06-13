@@ -101,6 +101,10 @@ const getTasksMonth = () => {
     return tasks;
 }
 
+const getTasksByProject = () => {
+
+}
+
 
 
 export { 
@@ -111,5 +115,6 @@ export {
     getTasks, 
     getTasksToday, 
     getTasksWeek, 
-    getTasksMonth 
+    getTasksMonth,
+    getTasksByProject 
 };

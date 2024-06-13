@@ -1,6 +1,31 @@
-import { closeModal, openModal, renderTasks, renderProjects, renderEditModal, renderAddProjectModal, removeModal } from "./scripts/dom";
-import { addTask, updateTask, deleteTask, markComplete, getTasks, getTasksToday, getTasksWeek, getTasksMonth } from "./scripts/taskManager";
-import { addProject, deleteProject, getProjects } from "./scripts/projectManager";
+import { 
+    closeModal, 
+    openModal, 
+    renderTasks, 
+    renderProjects, 
+    renderEditModal, 
+    renderAddProjectModal, 
+    removeModal 
+} from "./scripts/dom";
+
+import { 
+    addTask, 
+    updateTask, 
+    deleteTask, 
+    markComplete, 
+    getTasks, 
+    getTasksToday, 
+    getTasksWeek, 
+    getTasksMonth, 
+    getTasksByProject 
+} from "./scripts/taskManager";
+
+import { 
+    addProject, 
+    deleteProject, 
+    getProjects 
+} from "./scripts/projectManager";
+
 let addTaskButton = document.querySelector('#add-task');
 let allTasksButton = document.querySelector('#all-tasks');
 let todayTasksButton = document.querySelector('#today-tasks');
@@ -12,6 +37,7 @@ let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
 let titleText = document.querySelector('.title > h2');
 let taskArray = [];
+let projectArray = [];
 
 
 const setVisibleTasks = (taskItems, titleString) => {
@@ -39,8 +65,10 @@ const addEventsToProjectModal = () => {
 
         console.log(projectName);
         addProject(projectName);
+        projectArray = getProjects();
+
         removeModal();
-        console.log(getProjects());
+        renderProjects(projectArray);
     });
 }
 
@@ -108,6 +136,15 @@ const addEventToDeleteButtons = () => {
     }
 }
 
+const addEventsToProjectItems = () => {
+    let projectItem = document.querySelectorAll('.project-item');
+    let deleteProjectButton = document.querySelectorAll('.delete-folder');
+
+    for(let i = 0; i < projectItem.length; i++) {
+        projectItem.addEventListener('click', getTasksByProject());
+    }
+}
+
 
 
 form.addEventListener('submit', event => event.preventDefault());
@@ -168,5 +205,8 @@ saveButton.addEventListener('click', () => {
 });
 
 
+console.log(taskArray);
 console.log(getProjects());
+renderProjects(getProjects());
+addEventsToProjectItems();
 initializePage();

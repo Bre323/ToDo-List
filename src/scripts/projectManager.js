@@ -1,5 +1,3 @@
-let form = document.querySelector('form');
-
 class Project {
     constructor(name, index) {
         this.name = name;
@@ -18,7 +16,7 @@ const getProjectId = () => {
 
 const incrementProjectId = () => {
     let projectId = localStorage.getItem("projectId");
-    id++;
+    projectId++;
 
     return localStorage.setItem("projectId", projectId);
 }
@@ -28,7 +26,7 @@ const getProjects = () => {
 
     for(let i = 0; i < getProjectId(); i++) {
         localStorage.getItem(`project-${i}`) ? 
-            tasks.push(JSON.parse(localStorage.getItem(`project-${i}`))) : null;
+            projects.push(JSON.parse(localStorage.getItem(`project-${i}`))) : null;
     }
 
     return projects;
@@ -36,7 +34,10 @@ const getProjects = () => {
 
 const addProject = (name) => {
     let index = parseInt(getProjectId());
+    let form = document.querySelector('form#edit-modal');
 
+    console.log(form);
+    console.log(form.checkValidity());
     if(form.checkValidity() === true) {
         let project = new Project(name, index);
         localStorage.setItem(`project-${index}`, JSON.stringify(project));
