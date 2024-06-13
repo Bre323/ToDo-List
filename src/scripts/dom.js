@@ -101,7 +101,7 @@ const renderListItem = (name, date, priority, project, notes, index) => {
 
 const renderProjectItem = (name, projectKey) => {
     projectList.insertAdjacentHTML('beforeend', `
-    <div class="project-item" data-projectKey="${projectKey}">
+    <div class="project-item" id="${projectKey}">
         <div class="project-title">
             <img src="./assets/folder-icon.svg">
             <p>${name}</p>
@@ -142,6 +142,29 @@ const renderProjects = (projectArray) => {
     }
 }
 
+const addProjectOptions = (projectArray) => {
+    let projectSelect = document.querySelector('#project');
+    projectSelect.innerHTML = `<option value="no-project">None</option>`;
+
+    console.log(projectSelect);
+    console.log(projectArray);
+
+    for(let i = 0; i < projectArray.length; i++) {
+        let projectName = projectArray[i].name;
+        console.log(projectName);
+        projectSelect.innerHTML += `<option value="${projectName}">${projectName}</option>`;
+    }
+}
 
 
-export { openModal, closeModal, renderTasks, renderProjects, renderEditModal, renderAddProjectModal, removeModal };
+
+export { 
+    openModal, 
+    closeModal, 
+    renderTasks, 
+    renderProjects, 
+    addProjectOptions, 
+    renderEditModal, 
+    renderAddProjectModal, 
+    removeModal 
+};

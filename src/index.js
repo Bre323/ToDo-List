@@ -5,7 +5,8 @@ import {
     renderProjects, 
     renderEditModal, 
     renderAddProjectModal, 
-    removeModal 
+    removeModal, 
+    addProjectOptions
 } from "./scripts/dom";
 
 import { 
@@ -69,6 +70,7 @@ const addEventsToProjectModal = () => {
 
         removeModal();
         renderProjects(projectArray);
+        addEventsToProjectItems();
     });
 }
 
@@ -138,10 +140,29 @@ const addEventToDeleteButtons = () => {
 
 const addEventsToProjectItems = () => {
     let projectItem = document.querySelectorAll('.project-item');
+    let projectTitle = document.querySelectorAll('.project-title');
     let deleteProjectButton = document.querySelectorAll('.delete-folder');
 
     for(let i = 0; i < projectItem.length; i++) {
-        projectItem.addEventListener('click', getTasksByProject());
+        projectTitle[i].addEventListener('click', event => {
+            let item = event.target.parentNode.parentNode;
+            let projectTitle = event.target.innerText;
+            setVisibleTasks(getTasksByProject(item.id), projectTitle);
+            renderTasks(taskArray);
+            addEventToCompleteButtons();
+            addEventToEditButtons();
+            addEventToDeleteButtons();
+        });
+
+        deleteProjectButton[i].addEventListener('click', event => {
+            let item = event.target.parentNode;
+            console.log(item);
+            deleteProject(item.id);
+            projectArray = getProjects();
+
+            renderProjects(projectArray);
+            addEventsToProjectItems();
+        });
     }
 }
 
@@ -205,8 +226,6 @@ saveButton.addEventListener('click', () => {
 });
 
 
-console.log(taskArray);
-console.log(getProjects());
 renderProjects(getProjects());
 addEventsToProjectItems();
 initializePage();
