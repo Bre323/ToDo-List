@@ -36,8 +36,6 @@ const addProject = (name) => {
     let index = parseInt(getProjectId());
     let form = document.querySelector('form#edit-modal');
 
-    console.log(form);
-    console.log(form.checkValidity());
     if(form.checkValidity() === true) {
         let project = new Project(name, index);
         localStorage.setItem(`project-${index}`, JSON.stringify(project));

@@ -1,5 +1,4 @@
 import { format, isThisMonth, isThisWeek } from "date-fns";
-import { getProjects } from "./projectManager";
 let form = document.querySelector('form');
 
 class Task {
@@ -107,7 +106,7 @@ const getTasksByProject = (projectKey) => {
     let projectItem = JSON.parse(localStorage.getItem(`project-${projectKey}`));
     let projectName = projectItem.name.toLowerCase();
 
-    tasks = tasks.filter(task => task.project == projectName);
+    tasks = tasks.filter(task => task.project.toLowerCase() == projectName);
     return tasks;
 }
 

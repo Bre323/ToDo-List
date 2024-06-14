@@ -146,12 +146,8 @@ const addProjectOptions = (projectArray) => {
     let projectSelect = document.querySelector('#project');
     projectSelect.innerHTML = `<option value="no-project">None</option>`;
 
-    console.log(projectSelect);
-    console.log(projectArray);
-
     for(let i = 0; i < projectArray.length; i++) {
         let projectName = projectArray[i].name;
-        console.log(projectName);
         projectSelect.innerHTML += `<option value="${projectName}">${projectName}</option>`;
     }
 }

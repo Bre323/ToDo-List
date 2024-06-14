@@ -38,7 +38,7 @@ let saveButton = document.querySelector('#save-button');
 let form = document.querySelector('form');
 let titleText = document.querySelector('.title > h2');
 let taskArray = [];
-let projectArray = [];
+let projectArray = getProjects();
 
 
 const setVisibleTasks = (taskItems, titleString) => {
@@ -52,6 +52,9 @@ const initializePage = () => {
     addEventToCompleteButtons();
     addEventToEditButtons();
     addEventToDeleteButtons();
+    renderProjects(projectArray);
+    addEventsToProjectItems();
+    addProjectOptions(projectArray);
 }
 
 const addEventsToProjectModal = () => {
@@ -64,13 +67,13 @@ const addEventsToProjectModal = () => {
     saveProjectButton.addEventListener('click', () => {
         let projectName = document.querySelector('#project-name').value;
 
-        console.log(projectName);
         addProject(projectName);
         projectArray = getProjects();
 
         removeModal();
         renderProjects(projectArray);
         addEventsToProjectItems();
+        addProjectOptions(projectArray);
     });
 }
 
@@ -82,13 +85,13 @@ const addEventsToEditModal = (index) => {
     editModal.addEventListener('submit', event => event.preventDefault());
     cancelEdit.addEventListener('click', removeModal);
     saveEdit.addEventListener('click', () => {
-        let name = document.querySelector('#new-task-name').value;
-        let date = document.querySelector('#new-date').value;
-        let priority = document.querySelector('#new-priority').value;
-        let project = document.querySelector('#new-project').value;
-        let notes = document.querySelector('#new-notes').value;
+        let name = document.querySelector('#new-task-name');
+        let date = document.querySelector('#new-date');
+        let priority = document.querySelector('#new-priority');
+        let project = document.querySelector('#new-project');
+        let notes = document.querySelector('#new-notes');
 
-        updateTask(name, date, priority, project, notes, index);
+        updateTask(name.value, date.value, priority.value, project.value, notes.value, index);
         removeModal();
         setVisibleTasks(getTasks(), 'All Tasks');
         renderTasks(taskArray);
@@ -156,12 +159,12 @@ const addEventsToProjectItems = () => {
 
         deleteProjectButton[i].addEventListener('click', event => {
             let item = event.target.parentNode;
-            console.log(item);
             deleteProject(item.id);
             projectArray = getProjects();
 
             renderProjects(projectArray);
             addEventsToProjectItems();
+            addProjectOptions(projectArray);
         });
     }
 }
@@ -226,6 +229,5 @@ saveButton.addEventListener('click', () => {
 });
 
 
-renderProjects(getProjects());
-addEventsToProjectItems();
+
 initializePage();
