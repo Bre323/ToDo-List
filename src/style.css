@@ -72,7 +72,12 @@ aside > h1 {
 
 .project-list > div > .project-title {
     display: flex;
-    gap: 10px;
+    width: 90%;
+}
+
+.project-title > p {
+    width: 100%;
+    padding-left: 10px;
 }
 
 .project-list > .project-item {

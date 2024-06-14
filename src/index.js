@@ -148,9 +148,11 @@ const addEventsToProjectItems = () => {
 
     for(let i = 0; i < projectItem.length; i++) {
         projectTitle[i].addEventListener('click', event => {
-            let item = event.target.parentNode.parentNode;
-            let projectTitle = event.target.innerText;
-            setVisibleTasks(getTasksByProject(item.id), projectTitle);
+            let projectItem = event.target.parentNode.parentNode;
+            let projectTitle = event.target.parentNode;
+            let projectTitleText = projectTitle.children[1].innerText;
+            
+            setVisibleTasks(getTasksByProject(projectItem.id), projectTitleText);
             renderTasks(taskArray);
             addEventToCompleteButtons();
             addEventToEditButtons();
