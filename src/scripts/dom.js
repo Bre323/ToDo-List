@@ -11,7 +11,7 @@ const closeModal = () => {
     modalBox.open = false;
 }
 
-const renderEditModal = () => {
+const renderEditModal = (name, date, priority, project, notes) => {
     document.body.insertAdjacentHTML('beforeend', `
     <div id="overlay">
         <form id="edit-modal">
@@ -22,16 +22,13 @@ const renderEditModal = () => {
 
             <div class="modal-mid-section">
                 <select name="new-priority" id="new-priority" required>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                    <option id="new-priority-low" value="low">Low</option>
+                    <option id="new-priority-medium" value="medium">Medium</option>
+                    <option id="new-priority-high" value="high">High</option>
                 </select>
 
                 <select name="new-project" id="new-project">
                     <option value="no project">None</option>
-                    <option value="house">House</option>
-                    <option value="work">Work</option>
-                    <option value="gym">Gym</option>
                 </select>
             </div>
 
@@ -44,6 +41,30 @@ const renderEditModal = () => {
         </form>
     </div>
     `);
+}
+
+const addValuesToEditModal = (name, date, priority, project, notes) => {
+    let nameInput = document.querySelector('#new-task-name');
+    let dateInput = document.querySelector('#new-date');
+    let priorityOption = document.querySelector(`#new-priority-${priority}`);
+    let projectOption = document.querySelector(`#new-project > option[value="${project.toLowerCase()}"]`);
+    let notesInput = document.querySelector('#new-notes');
+
+    nameInput.value = name;
+    dateInput.value = date;
+    notesInput.innerText = notes;
+    priorityOption.selected = true;
+    projectOption.selected = true;
+};
+
+const addProjectOptionsToEditModal = (projectArray) => {
+    let projectSelect = document.querySelector('#new-project');
+    projectSelect.innerHTML = `<option value="no project">None</option>`;
+
+    for(let i = 0; i < projectArray.length; i++) {
+        let projectName = projectArray[i].name;
+        projectSelect.innerHTML += `<option value="${projectName.toLowerCase()}">${projectName}</option>`;
+    }
 }
 
 const renderAddProjectModal = () => {
@@ -144,7 +165,7 @@ const renderProjects = (projectArray) => {
 
 const addProjectOptions = (projectArray) => {
     let projectSelect = document.querySelector('#project');
-    projectSelect.innerHTML = `<option value="no-project">None</option>`;
+    projectSelect.innerHTML = `<option value="no project">None</option>`;
 
     for(let i = 0; i < projectArray.length; i++) {
         let projectName = projectArray[i].name;
@@ -153,14 +174,15 @@ const addProjectOptions = (projectArray) => {
 }
 
 
-
 export { 
     openModal, 
     closeModal, 
     renderTasks, 
     renderProjects, 
     addProjectOptions, 
-    renderEditModal, 
+    renderEditModal,
+    addValuesToEditModal,
+    addProjectOptionsToEditModal, 
     renderAddProjectModal, 
     removeModal 
 };

@@ -6,7 +6,9 @@ import {
     renderEditModal, 
     renderAddProjectModal, 
     removeModal, 
-    addProjectOptions
+    addProjectOptions,
+    addValuesToEditModal,
+    addProjectOptionsToEditModal
 } from "./scripts/dom";
 
 import { 
@@ -117,9 +119,12 @@ const addEventToEditButtons = () => {
     for(let i = 0; i < editSetting.length; i++) {
         editSetting[i].addEventListener('click', event => {
             let item = event.target.parentNode.parentNode;
+            let task = JSON.parse(localStorage.getItem(`task-${item.dataset.index}`));
 
-            renderEditModal();
+            renderEditModal(task.name, task.date, task.priority, task.project, task.notes);
             addEventsToEditModal(item.dataset.index);
+            addProjectOptionsToEditModal(projectArray);
+            addValuesToEditModal(task.name, task.date, task.priority, task.project, task.notes);
         });
     }    
 }
