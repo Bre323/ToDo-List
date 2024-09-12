@@ -5,7 +5,6 @@ import dayIcon from '../assets/day-icon.svg';
 import folderIcon from '../assets/folder-icon.svg';
 import deleteIcon from '../assets/delete-icon.svg';
 
-console.log(dayIcon + ' ' + folderIcon + ' ' + deleteIcon);
 
 const openModal = () => {
     modalBox.open = true;
