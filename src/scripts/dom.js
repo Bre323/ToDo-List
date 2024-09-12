@@ -1,7 +1,10 @@
 let modalBox = document.querySelector('dialog');
 let taskList = document.querySelector('.task-list');
 let projectList = document.querySelector('.project-list');
+import dayIcon from '../assets/day-icon.svg';
+import folderIcon from '../assets/folder-icon.svg';
 
+console.log(dayIcon + ' ' + folderIcon);
 
 const openModal = () => {
     modalBox.open = true;
@@ -98,12 +101,12 @@ const renderListItem = (name, date, priority, project, notes, index) => {
 
             <div class="task-info">
                 <div class="task-div">
-                    <img src="./assets/day-icon.svg">
+                    <img src="${dayIcon}">
                     <p>${date}</p>
                 </div>
 
                 <div class="task-div">
-                    <img src="./assets/folder-icon.svg">
+                    <img src="${folderIcon}">
                     <p>${project}</p>
                 </div>
 
