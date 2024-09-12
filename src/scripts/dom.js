@@ -3,8 +3,9 @@ let taskList = document.querySelector('.task-list');
 let projectList = document.querySelector('.project-list');
 import dayIcon from '../assets/day-icon.svg';
 import folderIcon from '../assets/folder-icon.svg';
+import deleteIcon from '../assets/delete-icon.svg';
 
-console.log(dayIcon + ' ' + folderIcon);
+console.log(dayIcon + ' ' + folderIcon + ' ' + deleteIcon);
 
 const openModal = () => {
     modalBox.open = true;
@@ -127,11 +128,11 @@ const renderProjectItem = (name, projectKey) => {
     projectList.insertAdjacentHTML('beforeend', `
     <div class="project-item" id="${projectKey}">
         <div class="project-title">
-            <img src="./assets/folder-icon.svg">
+            <img src="${folderIcon}">
             <p>${name}</p>
         </div>
 
-        <img class="delete-folder" src="./assets/delete-icon.svg" alt="delete icon">
+        <img class="delete-folder" src="${deleteIcon}" alt="delete icon">
     </div>    
     `);
 }
